@@ -1,0 +1,35 @@
+
+<!-- BNF -->
+<Number> = "0" | "1"| "2" |... |"9"
+  <DecimalNumber>= "0" | (("1"|"2"|...|"9") <Number>* )
+  
+  <DeciamlNumber> = /0|[1-9][0-9]*/
+  
+  <PrimaryExpression> = <DeciamlNumber> |
+    "(" <LogicalExpression> ")"
+  
+  <MutiplicationExpression> = <PrimaryExpression> | 
+    <MutiplicationExpression> "*" <PrimaryExpression>|
+    <MutiplicationExpression> "/" <PrimaryExpression>
+  
+  <AdditiveExpression> = <MutiplicationExpression> | 
+    <AdditiveExpression> "+" <MutiplicationExpression> |
+    <AdditiveExpression> "-" <MutiplicationExpression>
+  
+  
+  <LogicalExpression> = <AdditiveExpression> |
+    <LogicalExpression> "||" <AdditiveExpression> |
+    <LogicalExpression> "&&" <AdditiveExpression>
+  
+  "a" <b> "c" ::="a" "x" "c"
+  
+  "```四则运算\n"<LogicalExpression>"```"="```四则运算"
+    (<AdditiveExpresion>|
+    <LogicalExpression> "||" <AdditiveExpression> |
+    <LogicalExpression> "&&" <AdditiveExpreesion> )
+    "```"
+  
+  
+  
+  
+  
